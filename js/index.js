@@ -1,17 +1,14 @@
-jQuery(document).ready(function(){
-	jQuery('.skillbar').each(function(){
-		jQuery(this).find('.skillbar-bar').animate({
-			width:jQuery(this).attr('data-percent')
+$(document).ready(function(){
+	$('.skillbar').each(function(){
+		$(this).find('.skillbar-bar').animate({
+			width:$(this).attr('data-percent')
 		},6000);
 	});
 });
 
 
-$('.nav li').each(function(){
-	$(this).click(function(){
-		$('.nav .current').removeClass('current');
-		$(this).addClass("current");
-	});
+$('.nav li').on('click', function(){
+	$(this). addClass('current').siblings().removeClass('current');
 });
 
 
@@ -35,7 +32,7 @@ $(window).on('scroll', function() {
 })
 
 $(function(){		
-	//设计案例切换
+
 	$('.title-list li').mouseover(function(){
 		var liindex = $('.title-list li').index(this);
 		$(this).addClass('on').siblings().removeClass('on');
@@ -43,8 +40,7 @@ $(function(){
 		var liWidth = $('.title-list li').width();
 		$('.works-box .title-list p').stop(false,true).animate({'left' : liindex * liWidth + 'px'},300);
 	});
-	
-	//设计案例hover效果
+
 	$('.thumbnails').hover(function(){
 		$(this).css("border-color","#ff6600");
 		$(this).find('p > a').css('color','#ff6600');
